@@ -1,3 +1,5 @@
+<a href="{{url('empleado/create')}}" class="btn btn-success">Nuevo registro</a>
+
 <table class="table table-striped">
     <thead>
         <tr>

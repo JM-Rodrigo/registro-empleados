@@ -20,7 +20,10 @@
 </div>
 <div class="mb-3">
     <label for="Foto">Ingresa tu fotografía:</label>
-    {{$empleado->Foto}}
+    @if (isset($empleado->Foto))
+        <img class="img-thumbnail img-fluid" src="{{asset('storage').'/'.$empleado->Foto}}" alt="Foto" width="100px">
+    @endif
     <input type="file" name="Foto">
 </div>
 <input type="submit" class="btn btn-primary" value="Guardar">
+<a href="{{url('empleado/')}}" class="btn btn-success">Regresar</a>
