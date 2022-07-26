@@ -1,3 +1,4 @@
+<h1 align="center">{{$modo}} empleado</h1>
 <div class="mb-3">
     <label for="Nombre">Ingresa tu nombre:</label>
     <input class="form-control" type="text" name="Nombre" id="Nombre" value="{{isset($empleado->Nombre)?$empleado->Nombre:old('Nombre')}}">
@@ -25,5 +26,6 @@
     @endif
     <input type="file" name="Foto">
 </div>
-<input type="submit" class="btn btn-primary" value="Guardar">
+<input type="submit" class="btn btn-primary" value="{{$modo}} datos">
+
 <a href="{{url('empleado/')}}" class="btn btn-success">Regresar</a>
