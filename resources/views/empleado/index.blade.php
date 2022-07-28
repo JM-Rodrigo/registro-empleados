@@ -3,12 +3,17 @@
 @section('content')
 <div class="container">
     @if (Session::has('mensaje'))
-        {{Session::get('mensaje')}}    
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{Session::get('mensaje')}}    
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
     @endif
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" />
 
-    <a href="{{url('empleado/create')}}" class="btn btn-success">Nuevo registro</a>
+    <a href="{{url('empleado/create')}}" class="btn btn-success">Nuevo registro  <i class="fa-solid fa-user-plus"></i></i></a>
 
-    <table class="table table-striped">
+    <table class="table table-hover">
         <thead>
             <tr>
                 <th>#</th>
@@ -35,13 +40,13 @@
                     <img class="img-thumbnail img-fluid" src="{{asset('storage').'/'.$empleado->Foto}}" alt="Foto" width="100px">
                 </td>
                 <td>
-                    <a href="{{url('/empleado/'.$empleado->id.'/edit')}}" class="btn btn-warning">Editar</a>
+                    <a href="{{url('/empleado/'.$empleado->id.'/edit')}}" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
                 </td>
                 <td>
                     <form action="{{url('/empleado/'.$empleado->id)}}" method="post">
                         @csrf
                         @method('DELETE')
-                        <input type="submit" onclick="return confirm('¿Desea eliminar?')" value="Eliminar" class="btn btn-danger">
+                        <button type="submit" onclick="return confirm('¿Desea eliminar?')" value="Eliminar" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
                     </form>
                 </td>
             </tr>
